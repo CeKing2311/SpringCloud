@@ -22,7 +22,7 @@ spring:
             - After=2021-01-25T17:33:55.568+08:00[Asia/Shanghai] #在此时间后访问路由才生效
             #- Before=2021-01-25T18:33:55.568+08:00[Asia/Shanghai] #在此时间后访问路由才生效
             #- Between=2021-01-25T18:33:55.568+08:00[Asia/Shanghai],2021-01-25T18:33:55.568+08:00[Asia/Shanghai]
-            - Cookie=username,zzyy
+            #- Cookie=username,zzyy
 eureka:
   instance:
     hostname: cloud-gateway-service
