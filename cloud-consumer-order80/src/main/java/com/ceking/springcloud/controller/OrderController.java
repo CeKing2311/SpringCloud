@@ -2,12 +2,17 @@ package com.ceking.springcloud.controller;
 
 import com.ceking.springcloud.entities.CommonResult;
 import com.ceking.springcloud.entities.Payment;
+import com.ceking.springcloud.lb.LoadBalancer;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.net.URI;
+import java.util.List;
 
 /**
  * @author ceking
@@ -21,6 +26,11 @@ public class OrderController {
     public static final String PAYMENT_URL="http://CLOUD-PAYMENT-SERVICE";
     @Resource
     private RestTemplate restTemplate;
+
+    @Resource
+    private LoadBalancer loadBalancer;
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @PostMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){
@@ -43,7 +53,17 @@ public class OrderController {
             return  new CommonResult<>(444,"查询失败",null);
         }
     }
-
+    @GetMapping("/consumer/payment/lb")
+    public String getPaymentLB(){
+        //获取指定的微服务实例
+        List<ServiceInstance> instanceList = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        if (instanceList==null || instanceList.size()<=0){
+            return  null;
+        }
+        ServiceInstance serviceInstance =loadBalancer.instance(instanceList);
+        URI uri = serviceInstance.getUri();
+        return  restTemplate.getForObject(uri+"/payment/lb", String.class);
+    }
 
 
 }
