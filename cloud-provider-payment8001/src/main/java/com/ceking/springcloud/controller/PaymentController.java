@@ -49,6 +49,7 @@ public class PaymentController {
             return  new CommonResult(444,"查询失败,查询ID:"+id,null);
         }
     }
+
     @GetMapping("/payment/discovery")
     public Object discovery(){
         //获取全部的微服务实例
@@ -84,5 +85,9 @@ public class PaymentController {
         return  serverPort;
     }
 
+    @GetMapping("/payment/zipkin")
+    public  String paymentZipKin(){
+        return  "hi ,i`am paymentzipkin server fall back ,O(∩_∩)O哈哈~";
+    }
 
 }

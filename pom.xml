@@ -27,6 +27,14 @@
     <module>cloud-gateway-gateway9527</module>
       <module>cloud-config-center-3344</module>
       <module>cloud-config-client-3355</module>
+      <module>cloud-config-client-3366</module>
+      <module>cloud-stream-rabbitmq-provider8801</module>
+    <module>cloud-stream-rabbitmq-comsumer8802</module>
+    <module>cloud-stream-rabbitmq-comsumer8803</module>
+    <module>cloud-alibaba-provider-payment9001</module>
+    <module>cloud-alibaba-provider-payment9002</module>
+    <module>cloud-alibaba-consumer-nacos-order83</module>
+      <module>cloud-alibabi-config-nacos-client3377</module>
 
   </modules>
 
