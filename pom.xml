@@ -35,6 +35,9 @@
     <module>cloud-alibaba-provider-payment9002</module>
     <module>cloud-alibaba-consumer-nacos-order83</module>
       <module>cloud-alibabi-config-nacos-client3377</module>
+      <module>cloud-seata-order-service2001</module>
+      <module>cloud-seata-order-service2002</module>
+      <module>cloud-seata-order-service2003</module>
 
   </modules>
 

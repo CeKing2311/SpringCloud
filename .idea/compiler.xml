@@ -12,7 +12,10 @@
         <module name="cloud-stream-rabbitmq-provider8801" />
         <module name="cloud-consumerzk-order80" />
         <module name="cloud-config-center-3344" />
+        <module name="cloud-seata-order-service2003" />
         <module name="cloud-alibaba-provider-payment9002" />
+        <module name="cloud-seata-order-service2001" />
+        <module name="cloud-seata-order-service2002" />
         <module name="cloud-alibaba-provider-payment9001" />
         <module name="cloud-provider-hystrix-payment8001" />
         <module name="cloud-consumer-fegin-hystrix-order80" />
